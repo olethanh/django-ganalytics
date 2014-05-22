@@ -6,6 +6,9 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
       ga('create', '{{ GANALYTICS_TRACKING_CODE }}', 'auto');
+      {% if user %}
+          ga('set', '&uid', {{user.id}}); // Set the user ID using signed-in user_id.
+      {% endif %}
       ga('send', 'pageview');
 // ]]>
 </script>
